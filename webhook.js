@@ -7,7 +7,7 @@ app.use(express.json());
 app.post("/webhook", (req, res) => {
     console.log("Webhook received:", req.body);
 
-    exec("/home/ubuntu/webhook-handler.sh", (error, stdout, stderr) => {
+    exec("/home/ubuntu/webhook/todo-webhook-handler.sh", (error, stdout, stderr) => {
         if (error) {
             console.error("Deployment error:", stderr);
             return res.status(500).send("Deployment failed");
